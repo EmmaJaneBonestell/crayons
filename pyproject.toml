@@ -1,0 +1,307 @@
+[project]
+name = "crayons"
+version = "0.5.0"
+description = "TextUI colors for Python."
+authors = [
+    {name = "Kenneth Reitz", email = "me@kennethreitz.com"},
+    {name = "Matthew Peveler", email = "matt.peveler@gmail.com"},
+    {name = "Emma Jane Bonestell", email = "EmmaJaneBonestell@gmail.com"},
+]
+dependencies = [
+    "colorama >= 0.4.6",
+]
+requires-python = ">=3.12"
+readme = "README.rst"
+license = {text = "MIT"}
+maintainers = [
+    {name = "Emma Jane Bonestell", email = "EmmaJaneBonestell@gmail.com"},
+]
+keywords = [
+    "ansi",
+    "color",
+    "colorama",
+    "console",
+    "terminal",
+    "textui",
+    "typed"
+]
+classifiers = [
+    "Development Status :: 6 - Mature",
+    "Environment :: Console",
+    "Framework :: Pytest",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Topic :: System :: Console Fonts",
+    "Topic :: Terminals",
+    "Topic :: Terminals :: Terminal Emulators/X Terminals",
+    "Topic :: Text Processing",
+    "Typing :: Typed",
+]
+
+[project.optional-dependencies]
+dev = [
+    "mypy >= 1.15.0",
+    "pylint >= 3.3.4",
+    "pyright >= 1.1.394",
+    "pytest >= 8.3.4",
+    "ruff >= 0.9.2",
+    "types-colorama >= 0.4.15.20240311",
+]
+
+[project.urls]
+source = "https://github.com/EmmaJaneBonestell/crayons"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.mypy]
+check_untyped_defs = true
+extra_checks = true
+files = "crayons/__init__.py,crayons/_types.py,crayons/crayons.py,tests/test_crayons.py"
+python_version = "3.12"
+disallow_any_decorated = true
+disallow_any_explicit = true
+disallow_any_expr = true
+disallow_any_generics = true
+disallow_any_unimported = true
+disallow_incomplete_defs = true
+disallow_subclassing_any = true
+disallow_untyped_calls = true
+disallow_untyped_decorators = true
+disallow_untyped_defs = true
+pretty = true
+show_column_numbers = true
+show_error_code_links = true
+show_error_context = true
+strict = true
+strict_bytes = true
+strict_concatenate = true
+strict_equality = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unreachable = true
+warn_unused_ignores = true
+
+[tool.pylint.main]
+ignore = ["CVS", ".git", ".github"]
+jobs = 0
+limit-inference-results = 1000
+load-plugins = [
+"pylint.extensions.bad_builtin",
+"pylint.extensions.broad_try_clause",
+"pylint.extensions.check_elif",
+"pylint.extensions.code_style",
+"pylint.extensions.comparison_placement",
+"pylint.extensions.confusing_elif",
+"pylint.extensions.consider_refactoring_into_while_condition",
+"pylint.extensions.consider_ternary_expression",
+"pylint.extensions.dict_init_mutate",
+"pylint.extensions.docparams",
+"pylint.extensions.docstyle",
+"pylint.extensions.dunder",
+"pylint.extensions.eq_without_hash",
+"pylint.extensions.for_any_all",
+"pylint.extensions.no_self_use",
+"pylint.extensions.overlapping_exceptions",
+"pylint.extensions.redefined_loop_name",
+"pylint.extensions.redefined_variable_type",
+"pylint.extensions.set_membership",
+"pylint.extensions.typing",
+]
+prefer-stubs = true
+py-version = "3.12"
+
+[tool.pylint.basic]
+include-naming-hint = true
+
+[tool.pylint.classes]
+check-protected-access-in-special-methods = true
+
+[tool.pylint.format]
+indent-string = "    "
+max-line-length = 88
+single-line-class-stmt = true
+single-line-if-stmt = true
+
+# [tool.pylint.imports]
+# ext-import-graph = "external_dependencies.gv"
+# import-graph = "all_dependencies.gv"
+# int-import-graph = "internal_dependencies.gv"
+
+[tool.pylint."messages control"]
+confidence = []
+disable = [
+"file-ignored",
+"locally-disabled",
+"suppressed-message",
+]
+enable = ["all"]
+
+[tool.pylint.reports]
+output-format = "colorized"
+reports = true
+score = true
+
+[tool.pylint.typecheck]
+ignore-none = false
+ignore-on-opaque-inference = false
+ignored-checks-for-mixins = []
+missing-member-hint = true
+missing-member-hint-distance = 4
+missing-member-max-choices = 4
+
+[tool.pyright]
+include = [
+  "crayons/__init__.py",
+  "crayons/_types.py",
+  "crayons/crayons.py",
+  "tests/test_crayons.py",
+]
+pythonPlatform = "Linux"
+pythonVersion = "3.12"
+analyzeUnannotatedFunctions = true
+deprecateTypingAliases = true
+disableBytesTypePromotions = true 
+enableExperimentalFeatures = true
+enableReachabilityAnalysis = true
+enableTypeIgnoreComments = true
+reportAbstractUsage = "error"
+reportArgumentType = "error"
+reportAssertAlwaysTrue = "error"
+reportAssertTypeFailure = "error"
+reportAssignmentType = "error"
+reportAttributeAccessIssue = "error"
+reportCallInDefaultInitializer = "warning"
+reportCallIssue = "error"
+reportConstantRedefinition = "error"
+reportDeprecated = "warning"
+reportDuplicateImport = "warning"
+reportFunctionMemberAccess = "error"
+reportGeneralTypeIssues = "error"
+reportImplicitOverride = "warning"
+reportImplicitStringConcatenation = "none"
+reportImportCycles = "warning"
+reportIncompatibleMethodOverride = "error"
+reportIncompatibleVariableOverride = "error"
+reportIncompleteStub = "warning"
+reportInconsistentConstructor = "error"
+reportInconsistentOverload = "error"
+reportIndexIssue = "error"
+reportInvalidStringEscapeSequence = "error"
+reportInvalidStubStatement = "warning"
+reportInvalidTypeArguments = "error"
+reportInvalidTypeForm = "error"
+reportInvalidTypeVarUse = "error"
+reportMatchNotExhaustive = "error"
+reportMissingImports = "error"
+reportMissingModuleSource = "warning"
+reportMissingParameterType = "warning"
+reportMissingSuperCall = "warning"
+reportMissingTypeArgument = "warning"
+reportMissingTypeStubs = "warning"
+reportNoOverloadImplementation = "error"
+reportOperatorIssue = "error"
+reportOptionalCall = "error"
+reportOptionalContextManager = "error"
+reportOptionalIterable = "error"
+reportOptionalMemberAccess = "error"
+reportOptionalOperand = "error"
+reportOptionalSubscript = "error"
+reportOverlappingOverload = "error"
+reportPossiblyUnboundVariable = "error"
+reportPrivateImportUsage = "error"
+reportPrivateUsage = "warning"
+reportPropertyTypeMismatch = "error"
+reportRedeclaration = "error"
+reportReturnType = "error"
+reportSelfClsParameterName = "error"
+reportShadowedImports = "warning"
+reportTypeCommentUsage = "warning"
+reportTypedDictNotRequiredAccess = "error"
+reportUnboundVariable = "error"
+reportUndefinedVariable = "error"
+reportUnhashable = "error"
+reportUninitializedInstanceVariable = "error"
+reportUnknownArgumentType = "warning"
+reportUnknownLambdaType = "warning"
+reportUnknownMemberType = "warning"
+reportUnknownParameterType = "warning"
+reportUnknownVariableType = "warning"
+reportUnnecessaryCast = "warning"
+reportUnnecessaryComparison = "warning"
+reportUnnecessaryContains = "warning"
+reportUnnecessaryIsInstance = "warning"
+reportUnnecessaryTypeIgnoreComment = "warning"
+reportUnsupportedDunderAll = "error"
+reportUntypedBaseClass = "warning"
+reportUntypedClassDecorator = "warning"
+reportUntypedFunctionDecorator = "warning"
+reportUntypedNamedTuple = "error"
+reportUnusedCallResult = "warning"
+reportUnusedClass = "warning"
+reportUnusedCoroutine = "error"
+reportUnusedExcept = "error"
+reportUnusedExpression = "warning"
+reportUnusedFunction = "warning"
+reportUnusedImport = "warning"
+reportUnusedVariable = "warning"
+reportWildcardImportFromLibrary = "warning"
+strictDictionaryInference = true
+strictListInference = true
+strictParameterNoneValue = true
+strictSetInference = true
+useLibraryCodeForTypes = true
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests",
+]
+
+[tool.ruff]
+cache-dir = ".ruff_cache"
+include = ["*.py", "**/*.py"]
+preview = true
+show-fixes = true
+target-version = "py312"
+unsafe-fixes = true
+
+[tool.ruff.format]
+docstring-code-format = true
+preview = true
+
+[tool.ruff.lint]
+ignore = [
+"T201", # Remove print() calls
+"T203", # Remove pprint() calls
+]
+preview = true
+select = ["ALL"]
+
+[tool.ruff.lint.extend-per-file-ignores]
+"__init__.py" = [
+    "CPY001",
+    "D104",
+]
+
+[tool.ruff.lint.flake8-type-checking]
+strict = true
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+required-imports = ["from __future__ import annotations"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.setuptools]
+license-files = ["LICENSE"]
