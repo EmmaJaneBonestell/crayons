@@ -1,8 +1,12 @@
 #!/bin/python
 # Copyright 2017 Kenneth Reitz, 2019 Matthew Peveler, 2025 EMJ
 """Simple test of just running the README example. Better tests to come."""
-# ruff: noqa: T201,T203
 
+# ruff: noqa: T201,T203
+# pyright: reportAttributeAccessIssue=false
+# pyright: reportCallIssue=false
+# pyright: reportUnknownArgumentType=false
+# pyright: reportUnknownMemberType=false
 from __future__ import annotations
 
 import crayons
@@ -52,4 +56,4 @@ def test_basic_functionality() -> None:
 
 
 if __name__ in {"__main__", "test_crayons"}:
-    test_basic_functionality()
+    test_basic_functionality()  # pragma: no cover

@@ -1,5 +1,5 @@
+"""A simple and elegant wrapper for colorama."""
 # Copyright 2017 Kenneth Reitz, 2019 Matthew Peveler, 2025 EMJ
-"""Export crayons module from the top-level package."""
 
 # pylint: disable=duplicate-code
 

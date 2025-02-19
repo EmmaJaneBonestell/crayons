@@ -50,6 +50,8 @@ classifiers = [
 [project.optional-dependencies]
 dev = [
     "mypy >= 1.15.0",
+    "hypothesis >= 6.125.1",
+    "ipython>= 8.32.0",
     "pylint >= 3.3.4",
     "pyright >= 1.1.394",
     "pytest >= 8.3.4",
@@ -64,10 +66,26 @@ source = "https://github.com/EmmaJaneBonestell/crayons"
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
+[tool.coverage.run]
+branch = true
+concurrency = ["thread"]
+include = [
+    "crayons/__init__.py",
+    "crayons/_inherit_docs.py",
+    "crayons/_types.py",
+    "crayons/crayons.py",
+    "tests/test_basic_functionality.py",
+    "tests/test_getattr.py",
+    "tests/test_with_hypothesis.py",
+]
+
+[tool.coverage.report]
+exclude_also = ["^\\s*if TYPE_CHECKING:"]
+
 [tool.mypy]
 check_untyped_defs = true
 extra_checks = true
-files = "crayons/__init__.py,crayons/_types.py,crayons/crayons.py,tests/test_crayons.py"
+files = "crayons/__init__.py,crayons/_inherit_docs.py,crayons/_types.py,crayons/crayons.py,tests/test_basic_functionality.py,tests/test_getattr.py,tests/test_with_hypothesis.py"
 python_version = "3.12"
 disallow_any_decorated = true
 disallow_any_explicit = true
@@ -162,10 +180,13 @@ missing-member-max-choices = 4
 
 [tool.pyright]
 include = [
-  "crayons/__init__.py",
-  "crayons/_types.py",
-  "crayons/crayons.py",
-  "tests/test_crayons.py",
+    "crayons/__init__.py",
+    "crayons/_inherit_docs.py",
+    "crayons/_types.py",
+    "crayons/crayons.py",
+    "tests/test_basic_functionality.py",
+    "tests/test_getattr.py",
+    "tests/test_with_hypothesis.py",
 ]
 pythonPlatform = "Linux"
 pythonVersion = "3.12"
@@ -286,6 +307,9 @@ ignore = [
 ]
 preview = true
 select = ["ALL"]
+
+[tool.ruff.lint.flake8-copyright]
+notice-rgx = "# Copyright 2017 Kenneth Reitz, 2019 Matthew Peveler, 2025 EMJ"
 
 [tool.ruff.lint.extend-per-file-ignores]
 "__init__.py" = [
